@@ -15,6 +15,6 @@
   "author": "Kavita Kinagi",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^4.19.2"
   }
 }
