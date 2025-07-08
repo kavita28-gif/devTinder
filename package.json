@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/app.js",
-    "dev" : "nodemon src/app.js"
+    "dev": "nodemon src/app.js"
   },
   "keywords": [
     "Nodejs",
@@ -15,6 +15,7 @@
   "author": "Kavita Kinagi",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "mongoose": "^8.16.2"
   }
 }
