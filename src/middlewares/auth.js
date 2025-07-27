@@ -25,7 +25,7 @@ const userAuth = async (req, res, next) => {
             throw new Error("Invalid Token!");
         }
 
-        const isTokenValid = await jwt.verify(token, "DEVtinder@289");
+        const isTokenValid = await jwt.verify(token, process.env.JWT_SECRET_KEY);
 
         const { _id } = isTokenValid;
 
@@ -38,7 +38,7 @@ const userAuth = async (req, res, next) => {
         req.user = user;
         next();
     } catch(err) {
-        res.status(404).send("Error:"+ err.message)
+        res.status(401).send("Error:"+ err.message)
     }
 
 }

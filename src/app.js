@@ -1,9 +1,20 @@
 const express = require('express');
 const cookieParser = require("cookie-parser");
-
+require('dotenv').config();
 const connectDB = require('./config/database');
+const cors = require('cors');
+
+
 
 const app = express();
+
+
+app.use(
+    cors({
+        origin: "http://localhost:5173",
+        credetials: true,
+    })
+)
 
 app.use(express.json());
 app.use(cookieParser());
@@ -22,7 +33,7 @@ app.use("/", userRouter)
 connectDB()
  .then(() => {
     console.log("Successfully extablished database");
-    app.listen(4000, ()=> {
+    app.listen(process.env.PORT , ()=> {
     console.log("Server is running on 4000 port");
 });
  })
