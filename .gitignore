@@ -1,2 +1,11 @@
 node_modules
 .env
+# Serverless build artifacts
+.serverless
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store

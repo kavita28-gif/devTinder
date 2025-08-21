@@ -52,6 +52,14 @@ const userSchema = new Schema({
             }
         }
     },
+    isPremium: {
+        type: Boolean,
+        default: false
+    },
+    membershipType: {
+        type: String,
+
+    },
     photoUrl: {
         type: String,
         default: "https://ongcvidesh.com/company/board-of-directors/dummy-image/",

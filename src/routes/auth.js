@@ -9,7 +9,6 @@ const User = require('../models/user');
 
 const authRouter = express.Router();
 
-
 authRouter.post("/login", async (req, res) => {
     try {
         const { emailId, password } = req.body;

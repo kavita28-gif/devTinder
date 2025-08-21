@@ -1,0 +1,26 @@
+service: dev-tinder
+
+plugins:
+  - serverless-dotenv-plugin
+
+provider:
+  name: aws
+  runtime: nodejs22.x
+  environment:
+    DB_CONNECTION: ${env:DB_CONNECTION}
+  region: ap-south-1
+  vpc:
+    subnetIds:
+      - subnet-020ea596909adc64f
+      - subnet-051d8bf4616d61dcd
+    securityGroupIds:
+      - sg-0a0c54f9fd47c6313
+  lambdaHashingVersion: 20201221
+
+functions:
+  dev-tinder-api:
+    handler: src/app.handler
+    events: 
+        - http: ANY /
+        - http: 'ANY /{proxy+}'
+      

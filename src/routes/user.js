@@ -16,7 +16,7 @@ userRouter.get("/user/requests/received", userAuth, async(req, res) => {
             status: "interested"
         }).populate("fromUserId", USER_SAFE_DATA)
         .populate("toUserId", USER_SAFE_DATA)
-        .lean();
+        .lean(); // ?
 
         // if(!connectionRequests) {
         //     return res.status()
@@ -91,7 +91,7 @@ userRouter.get("/feed", userAuth, async (req, res) => {
         const users = await User.find({
            $and : [ 
             { _id : { $nin : Array.from(hideUsersFromFeed)}} ,
-            { _id : {$ne: loggedInUser._id}}
+            { _id : { $ne  : loggedInUser._id}}
            ]
         }).select(USER_SAFE_DATA)
         .skip(skip)
