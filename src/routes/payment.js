@@ -90,7 +90,20 @@ paymentRouter.post("/payment/webhook", async (req, res) => {
         return res.status(500).json({"message":  err.message})
     }
 
-})
+});
+
+paymentRouter.post("/payment/verify", userAuth, async (req, res) => {
+    try {
+        const user = req.user.toJSON();
+
+        if(user.isPremium) {
+            return res.status(200).json({isPremium : true});
+        }
+        return res.status(200).json({isPremium : false});
+    } catch(err) {
+        return res.status(500).json({"message":  err.message})
+    }
+});
 
 
 module.exports = paymentRouter;
